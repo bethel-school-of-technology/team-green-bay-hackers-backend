@@ -1,29 +1,30 @@
 import { DataTypes, InferAttributes, InferCreationAttributes, Model, Sequelize } from "sequelize";
+import { User } from "./user";
 
-export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>>{
+export class List extends Model<InferAttributes<List>, InferCreationAttributes<List>>{
+    declare listId: number;
+    declare title: string;
     declare userId: number;
-    declare username: string;
-    declare password: string;
     declare createdAt?: Date;
     declare updatedAt?: Date;
 }
 
-export function UserFactory(sequelize: Sequelize) {
-    User.init({
-        userId: {
+export function ListFactory(sequelize: Sequelize) {
+    List.init({
+        listId: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
-        username: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -36,8 +37,14 @@ export function UserFactory(sequelize: Sequelize) {
             defaultValue: DataTypes.NOW,
         }
     }, {
-        tableName: 'users',
         freezeTableName: true,
+        tableName: 'lists',
         sequelize
     });
 }
+
+export function AssociateUserMessage() {
+    User.hasMany(List, { foreignKey: 'userId' });
+    List.belongsTo(User, { foreignKey: 'userId' });
+}
+
