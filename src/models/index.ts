@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import { UserFactory } from "./user";
 
+//what is the database name
 const dbName = 'userdb';
 const username = 'root';
 const password = 'Password1!';
