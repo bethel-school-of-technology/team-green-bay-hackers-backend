@@ -43,7 +43,7 @@ export function ListFactory(sequelize: Sequelize) {
     });
 }
 
-export function AssociateUserMessage() {
+export function AssociateUserList() {
     User.hasMany(List, { foreignKey: 'userId' });
     List.belongsTo(User, { foreignKey: 'userId' });
 }
