@@ -1,17 +1,17 @@
 import { Router } from 'express';
-import { createItem, deleteItem, getAllItems,
-    getItem, updateItem } from '../controllers/listController';
+import { createList, deleteList, getAllLists,
+    getList, updateList } from '../controllers/listController';
 
 const router = Router();
 
-router.get('/', getAllItems);
+router.get('/', getAllLists);
 
-router.post('/', createItem);
+router.post('/', createList);
 
-router.get('/:id', getItem);
+router.get('/:id', getList);
 
-router.put('/:id', updateItem);
+router.put('/:id', updateList);
 
-router.delete('/:id', deleteItem);
+router.delete('/:id', deleteList);
 
 export default router;
