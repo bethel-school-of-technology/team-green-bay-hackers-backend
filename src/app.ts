@@ -1,7 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express'
 import morgan from 'morgan';
 
-// Need to define db variable in models folder
 import { db } from './models';
 
 import userRoutes from './routes/userRoutes';
