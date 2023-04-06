@@ -3,8 +3,6 @@ import { AssociateUserList, ListFactory } from "./lists";
 import { UserFactory } from "./user";
 
 const dbName = 'shoppingListDB';
-
-
 const username = 'root';
 const password = 'Password1!';
 
