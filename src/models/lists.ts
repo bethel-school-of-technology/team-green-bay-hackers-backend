@@ -24,7 +24,6 @@ export function ListFactory(sequelize: Sequelize) {
         },
         userId: {
             type: DataTypes.INTEGER,
-            allowNull: false,
         },
         createdAt: {
             type: DataTypes.DATE,
