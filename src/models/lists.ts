@@ -15,7 +15,6 @@ export function ListFactory(sequelize: Sequelize) {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
         },
         title: {
             type: DataTypes.STRING,
