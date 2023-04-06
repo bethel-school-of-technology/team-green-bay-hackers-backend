@@ -2,10 +2,7 @@ import { Sequelize } from "sequelize";
 import { AssociateUserList, ListFactory } from "./lists";
 import { UserFactory } from "./user";
 
-// What is the database name? I'm using "shoppingListDB" as a placeholder for now
 const dbName = 'shoppingListDB';
-
-
 const username = 'root';
 const password = 'Password1!';
 
