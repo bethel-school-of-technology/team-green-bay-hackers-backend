@@ -49,3 +49,4 @@ export function UserFactory(sequelize: Sequelize) {
         sequelize
     });
 }
+
