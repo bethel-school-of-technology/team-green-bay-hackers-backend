@@ -14,6 +14,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// configuring cors middleware
+const cors = require('cors');
+app.use(cors());
+
 // routes
 app.use('/api/list', listRoutes);
 app.use('/api/users', userRoutes);
