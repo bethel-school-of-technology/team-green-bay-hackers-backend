@@ -7,6 +7,8 @@ export class List extends Model<InferAttributes<List>, InferCreationAttributes<L
     declare userId: number;
     declare createdAt?: Date;
     declare updatedAt?: Date;
+    // added this for checkbox feature
+    declare inCart: Boolean;
 }
 
 export function ListFactory(sequelize: Sequelize) {
@@ -33,6 +35,12 @@ export function ListFactory(sequelize: Sequelize) {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
+        },
+        // Added this to attributes to save checkbox status in grocery list
+        inCart: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         }
     }, {
         freezeTableName: true,
