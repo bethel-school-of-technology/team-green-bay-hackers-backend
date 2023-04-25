@@ -4,7 +4,7 @@ import { UserFactory } from "./user";
 
 const dbName = 'shoppingListDB';
 const username = 'root';
-const password = 'Password1!';
+const password = 'M0sher325';
 
 const sequelize = new Sequelize(dbName, username, password, {
     host: 'localhost',
