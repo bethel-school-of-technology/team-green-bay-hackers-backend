@@ -30,10 +30,13 @@ export const loginUser: RequestHandler = async (req, res, next) => {
     if (existingUser) {
         let passwordsMatch = await comparePasswords(req.body.password, existingUser.password);
         
+        let thisUser = existingUser.userId
+        let userName = existingUser.username
+
         // If passwords match, create a JWT
         if (passwordsMatch) {
             let token = await signUserToken(existingUser);
-            res.status(200).json({ token });
+            res.send({ token, thisUser, userName });
         }
         else {
             res.status(401).json('Invalid password');
