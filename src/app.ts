@@ -14,6 +14,17 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// configuring cors middleware (allows ALL incoming requests)
+// const cors = require('cors');
+// app.use(cors());
+
+// configuring cors to only allow requests from specific client domain
+const cors = require('cors');
+const corsOptions = {
+    origin: [ 'http://localhost:4200', 'http://localhost:3000' ]
+};
+app.use(cors(corsOptions));
+
 // routes
 app.use('/api/list', listRoutes);
 app.use('/api/users', userRoutes);
@@ -29,16 +40,3 @@ db.sync({ alter: true }).then(() => {
 
 app.listen(3000);
 
-// import express, { Request, Response } from 'express'
-
-// const app = express();
-
-// const port = 3000
-
-// app.get('/', (req: Request, res: Response) => {
-//   res.send('Hello World!')
-// })
-
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`)
-// })
