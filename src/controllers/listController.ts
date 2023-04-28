@@ -38,6 +38,8 @@ export const getList: RequestHandler = async (req, res, next) => {
 }
 
 export const updateList: RequestHandler = async (req, res, next) => {
+
+    //slight bug  - any signed in user can edit any post
     let listId = req.params.id;
     let newList: List = req.body;
     let listFound = await List.findByPk(listId);
@@ -63,6 +65,10 @@ export const updateList: RequestHandler = async (req, res, next) => {
 }
 
 export const deleteList: RequestHandler = async (req, res, next) => {
+
+
+        //slight bug  - any signed in user can delete any post
+
     let listId = req.params.id;
     let found = await List.findByPk(listId);
     let user: User | null = await verifyUser(req);
