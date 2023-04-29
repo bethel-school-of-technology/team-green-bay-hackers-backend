@@ -14,10 +14,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// configuring cors middleware (allows ALL incoming requests)
-// const cors = require('cors');
-// app.use(cors());
-
 // configuring cors to only allow requests from specific client domain
 const cors = require('cors');
 const corsOptions = {
