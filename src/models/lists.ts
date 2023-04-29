@@ -22,7 +22,7 @@ export function ListFactory(sequelize: Sequelize) {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: false
         },
         userId: {
             type: DataTypes.INTEGER,
